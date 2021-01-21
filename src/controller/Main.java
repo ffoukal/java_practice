@@ -24,9 +24,12 @@ public class Main {
             case 5:
                 ejercicioCinco(scanner);
                 break;
+            case 4:
+                ejercicioCuatro(scanner);
+                break;
             default:
                 System.out.println("El ejercicio solicitado no existe");
-                break;
+                break;                
         }
 
     }
@@ -70,26 +73,25 @@ public class Main {
     {
         System.out.println("Ingrese un numero: ");
         int number = scanner.nextInt();
-        int divisores = 0;
-        for (int i = 1; i <= number; i++)
-        {
-            if (number%i == 0)
-            {
-                divisores++;
-            }
-        }
         System.out.print(number);
-        if (divisores == 2)
-        {
-            System.out.printf(" Es primo");
-        }
-        else
-        {
-            System.out.printf(" No es primo");
-        }
+        if (Ejercicios.esPrimo(number)) {System.out.println(" es primo");}
+        else {System.out.println(" no es primo");}
     }
 
-    public static void ejercicioCinco(Scanner scanner){
+    public static void ejercicioCuatro(Scanner scanner)
+    {
+        System.out.println("Ingrese un numero: ");
+        int number = scanner.nextInt();
+        for (int i = 1; i <= number; i++) {
+            if (Ejercicios.esPrimo(i)) {
+                System.out.println(i);
+            }
+        }
+
+    }
+
+    public static void ejercicioCinco(Scanner scanner)
+    {
         System.out.print("Ingrese la cantidad de nª a buscar: ");
         int n = scanner.nextInt();
         System.out.print("Ingrese digito a buscar: ");
@@ -112,6 +114,5 @@ public class Main {
         for(Integer number : number_list){
             System.out.println(number);
         }
-
     }
 }
