@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -19,6 +20,12 @@ public class Main {
                 break;
             case 3:
                 ejercicioTres(scanner);
+                break;
+            case 5:
+                ejercicioCinco(scanner);
+                break;
+            default:
+                System.out.println("El ejercicio solicitado no existe");
                 break;
         }
 
@@ -63,12 +70,48 @@ public class Main {
     {
         System.out.println("Ingrese un numero: ");
         int number = scanner.nextInt();
+        int divisores = 0;
         for (int i = 1; i <= number; i++)
         {
-            if (i%i==0)
+            if (number%i == 0)
             {
-                System.out.println("El numero " + i + " es primo");
+                divisores++;
             }
         }
+        System.out.print(number);
+        if (divisores == 2)
+        {
+            System.out.printf(" Es primo");
+        }
+        else
+        {
+            System.out.printf(" No es primo");
+        }
+    }
+
+    public static void ejercicioCinco(Scanner scanner){
+        System.out.print("Ingrese la cantidad de nª a buscar: ");
+        int n = scanner.nextInt();
+        System.out.print("Ingrese digito a buscar: ");
+        int d = scanner.nextInt();
+        System.out.print("Ingrese cantidad de repeticiones del dígito: ");
+        int m = scanner.nextInt();
+
+        String pattern = "(.?["+ d + "] *?){" + m + "}";
+
+        int counter = 0;
+        List<Integer> number_list = new ArrayList<>();
+
+        for(int i = 0; n > counter; i++){
+            if(Pattern.matches(pattern, Integer.toString(i))){
+                number_list.add(i);
+                counter++;
+            }
+        }
+
+        for(Integer number : number_list){
+            System.out.println(number);
+        }
+
     }
 }
