@@ -20,6 +20,9 @@ public class Main {
             case 3:
                 ejercicioTres(scanner);
                 break;
+            case 4:
+                ejercicioCuatro(scanner);
+                break;
         }
 
     }
@@ -63,12 +66,18 @@ public class Main {
     {
         System.out.println("Ingrese un numero: ");
         int number = scanner.nextInt();
+        System.out.print(number);
+        if (Ejercicios.esPrimo(number)) {System.out.println(" es primo");}
+        else {System.out.println(" no es primo");}
+    }
+
+    public static void ejercicioCuatro(Scanner scanner)
+    {
+        System.out.println("Ingrese un numero: ");
+        int number = scanner.nextInt();
         for (int i = 1; i <= number; i++)
         {
-            if (i%i==0)
-            {
-                System.out.println("El numero " + i + " es primo");
-            }
+            if(Ejercicios.esPrimo(i)) { System.out.println(i); }
         }
     }
 }
